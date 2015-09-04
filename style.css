@@ -1,0 +1,25 @@
+.buttons{
+    width:50%;
+    margin:0 auto;
+    text-align:center; 
+    display:block;
+    margin-top:20px;
+}
+a.button{
+    color:white;
+    display:inline-block;
+    padding:5px 15px;
+    background-color: #4550A8;
+    text-decoration: none;
+}
+.showTweets{
+    width:800px;
+    margin:0 auto;
+    margin-top:50px;
+}
+.tweet{width:380px;margin-right:10px;display:inline-block;background-color:lightgray;box-sizing:border-box;padding:10px;}
+.tweet p {margin:5px auto;color:#A22929;}
+.tweet p.favorites,.tweet p.retweets{display:inline-block}
+.tweet p.retweets{float:right}
+.tweet a.readMore{display:block;}
+.tweet a{color:  #800A8F;text-decoration: none;}

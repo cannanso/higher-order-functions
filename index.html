@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show tweets</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="buttons">
+    <a href="/retweet" class="showRetweets button">Show only re-tweeted</a>
+    <a href="/favorite" class="showFavorited button">Show only favorited</a>
+    <a href="/" class="showAll button">Show all</a>
+</div>
+<div class="showTweets">
+    <div class="tweet">
+        <p><a href="" class="hashtag">#Popeye</a> is eating spinach <a href="" class="mention">@Oliveoil</a></p>
+        <p class="favorites">favorites <span>5</span></p><p class="retweets">retweets <span>10</span></p>
+        <a href="" class="readMore">View on twitter</a>
+    </div>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="getTweets.js"></script>
+</body>
+</html>
