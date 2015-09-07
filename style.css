@@ -17,7 +17,7 @@ a.button{
     margin:0 auto;
     margin-top:50px;
 }
-.tweet{width:380px;margin-right:10px;display:inline-block;background-color:lightgray;box-sizing:border-box;padding:10px;}
+.tweet{vertical-align:top;margin-bottom:10px;width:380px;margin-right:10px;display:inline-block;background-color:lightgray;box-sizing:border-box;padding:10px;vertical-align: top;margin-bottom: 10px;}
 .tweet p {margin:5px auto;color:#A22929;}
 .tweet p.favorites,.tweet p.retweets{display:inline-block}
 .tweet p.retweets{float:right}
