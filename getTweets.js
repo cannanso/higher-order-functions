@@ -1,6 +1,6 @@
-//url constructor http://twitter.com/"+{users screename}+"/status/"+{tweet id_str}
+//readmore url constructor http://twitter.com/"+{users screename}+"/status/"+{tweet id_str}
 //hashtag search url  http://twitter.com/search?q=%23" + {hashtag text}
-// view user http://twitter.com/"+ {user screen_name}
+//view user http://twitter.com/"+ {user screen_name}
 
 $(document).ready(function(){
     //bind event handlers
@@ -10,9 +10,10 @@ $(document).ready(function(){
     $('.showAll').click(function(){});
     // get JSON data
     $.getJSON('data.json',function(response){
-    	for(var i=0; i<response.length; i++){
-    		console.log(response[i].created_at);
-    	}
+	    var tweets = response.map(function(data){
+	    	return '<div class="tweet"><p>'+ data.text + '</p></div>';
+	    });
+	    $('.showTweets').append(tweets);
     });
 });
 
