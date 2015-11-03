@@ -6,7 +6,7 @@ function formatTweet(data){
     return '<div class="tweet">'+
             '<p>' + data.text + '</p>'+
             '<p class="favorites">favorites <span>'+ data.favorite_count + '</span></p><p class="retweets">retweets <span>' + data.retweet_count + '</span></p>'+
-            '<a href="http://twitter.com/'+ data.user.screen_name + '/status/"'+ data.id_str +'" class="readMore">View on twitter</a>'+
+            '<a href="http://twitter.com/'+ data.screen_name + '/status/'+ data.id_str +'" class="readMore">View on twitter</a>'+
             '</div>';
 }
 
@@ -53,7 +53,7 @@ $(document).ready(function(){
             return total + num;
         }, 0);
 
-	    $('.showTweets').append(tweets);
+	    $('.showTweets').html(tweets);
         $('.showRetweets').append(' (' + totalRetweets + ')');
     });
 });
