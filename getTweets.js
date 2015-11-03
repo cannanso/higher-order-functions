@@ -6,7 +6,8 @@ $(document).ready(function(){
 	var tweets = [];
 	var retweets = [];
     var favorites = [];
-    
+    var totalRetweets;
+
     //bind event handlers
     $('.buttons a').click(function(e){e.preventDefault();});
     $('.showRetweets').click(function(){
@@ -20,23 +21,30 @@ $(document).ready(function(){
     });
     // get JSON data
     $.getJSON('data.json',function(response){
-	   		tweets = response.map(function(data){
-	    		return '<div class="tweet"><p>'+ data.text + '</p></div>';
-	    	});
+   		tweets = response.map(function(data){
+    		return '<div class="tweet"><p>'+ data.text + '</p></div>';
+    	});
 
-	    	retweets = response.filter(function(element){
-	    		return element.retweeted;
-	    	}).map(function(data){
-                return '<div class="tweet"><p>'+ data.text + '</p></div>';
-            });
+    	retweets = response.filter(function(element){
+    		return element.retweeted;
+    	}).map(function(data){
+            return '<div class="tweet"><p>'+ data.text + '</p></div>';
+        });
 
-            favorites = response.filter(function(element){
-                return element.favorited;
-            }).map(function(data){
-                return '<div class="tweet"><p>'+ data.text + '</p></div>';
-            });
+        favorites = response.filter(function(element){
+            return element.favorited;
+        }).map(function(data){
+            return '<div class="tweet"><p>'+ data.text + '</p></div>';
+        });
+
+        totalRetweets = response.map(function(data){
+            return data.retweet_count;
+        }).reduce(function(total, num){
+            return total + num;
+        });
 
 	    $('.showTweets').append(tweets);
+        $('.showRetweets').append(' (' + totalRetweets + ')');
     });
 });
 
