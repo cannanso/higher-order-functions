@@ -4,13 +4,15 @@
 
 $(document).ready(function(){
     //bind event handlers
-    $('.buttons a').click(function(e){e.preventDefault()});
+    $('.buttons a').click(function(e){e.preventDefault();});
     $('.showRetweets').click(function(){});
     $('.showFavorited').click(function(){});
     $('.showAll').click(function(){});
     // get JSON data
-    $.getJSON('/data.json',function(response){
-
+    $.getJSON('data.json',function(response){
+    	for(var i=0; i<response.length; i++){
+    		console.log(response[i].created_at);
+    	}
     });
 });
 
