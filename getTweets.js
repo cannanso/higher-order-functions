@@ -5,12 +5,16 @@
 $(document).ready(function(){
 	var tweets = [];
 	var retweets = [];
+    var favorites = [];
+    
     //bind event handlers
     $('.buttons a').click(function(e){e.preventDefault();});
     $('.showRetweets').click(function(){
     	$('.showTweets').html(retweets);
     });
-    $('.showFavorited').click(function(){});
+    $('.showFavorited').click(function(){
+        $('.showTweets').html(favorites);
+    });
     $('.showAll').click(function(){
     	$('.showTweets').html(tweets);
     });
@@ -19,11 +23,19 @@ $(document).ready(function(){
 	   		tweets = response.map(function(data){
 	    		return '<div class="tweet"><p>'+ data.text + '</p></div>';
 	    	});
+
 	    	retweets = response.filter(function(element){
-	    		if(element.retweeted){
-	    			return '<div class="tweet"><p>'+ element.text + '</p></div>';
-	    		}
-	    	});
+	    		return element.retweeted;
+	    	}).map(function(data){
+                return '<div class="tweet"><p>'+ data.text + '</p></div>';
+            });
+
+            favorites = response.filter(function(element){
+                return element.favorited;
+            }).map(function(data){
+                return '<div class="tweet"><p>'+ data.text + '</p></div>';
+            });
+
 	    $('.showTweets').append(tweets);
     });
 });
